@@ -1,7 +1,7 @@
 package me.Cashtann.customStoneDrop.listeners;
 
 import me.Cashtann.customStoneDrop.CustomStoneDrop;
-import me.Cashtann.customStoneDrop.utilities.PlayerMessage;
+import org.bukkit.Bukkit;
 import org.bukkit.GameMode;
 import org.bukkit.Material;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -15,25 +15,32 @@ import java.util.List;
 import java.util.Random;
 
 
-public class StoneBreakListener implements Listener {
+public class BlockBreakListener implements Listener {
 
     private final List<ItemStack> items;
     private final FileConfiguration config;
     private final Random random;
+    private final CustomStoneDrop plugin;
 
-    public StoneBreakListener(List<ItemStack> items, FileConfiguration config) {
+    public BlockBreakListener(List<ItemStack> items, FileConfiguration config, CustomStoneDrop plugin) {
         this.items = items;
         this.config = config;
         this.random = new Random();
+        this.plugin = plugin;
     }
 
 
     @EventHandler
     public void onPlayerBreakStone(BlockBreakEvent event) {
+
+        Material brokenBlock = event.getBlock().getType();
+
+        if (!plugin.getMineableMaterials().contains(brokenBlock)) return;
+
         Player player = event.getPlayer();
         boolean enabled = CustomStoneDrop.getPlugin().getConfig().getBoolean("enabled");
         if (enabled) {
-            if (player.hasPermission("csd.drop") && player.getGameMode() == GameMode.SURVIVAL && event.getBlock().getBlockData().getMaterial() == Material.STONE) {
+            if (player.hasPermission("csd.drop") && player.getGameMode() == GameMode.SURVIVAL) {
                 for (ItemStack item : items) {
                     String itemKey = findItemKey(item);
                     if (itemKey == null) continue;

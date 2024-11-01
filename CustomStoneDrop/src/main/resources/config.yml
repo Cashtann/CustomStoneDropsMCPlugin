@@ -11,7 +11,7 @@ items:
     item: PURPLE_DYE  # Material type (must match a valid Bukkit Material)
     name: "&#9200D5&lC&#9E05D7&lu&#AA0AD9&lk&#B60FDB&li&#C213DD&le&#CE18DF&lr&#DA1DE1&le&#E622E3&lk" # Cukierek (purple)
     lore1: "&#FCD05CCukierek albo psikus!"
-    lore2: "&7Cukierki wypadają z kamienia"
+    lore2: "&7Wypada z kopania określonych bloków"
     lore3: "&7podczas wydarzenia &#CE5203Halloweenowego&7."
     lore4: "&7Wymień je na różne"
     lore5: "&7fanty u &#FF9800Dilera Cukierków&7."
@@ -22,12 +22,20 @@ items:
     item: ORANGE_DYE
     name: "&#DF0321&lC&#E01021&lu&#E11D21&lk&#E22A21&li&#E33822&le&#E44522&lr&#E55222&le&#E65F22&lk" # Cukierek (orange)
     lore1: "&#FCD05CCukierek albo psikus!"
-    lore2: "&7Cukierki wypadają z kamienia"
+    lore2: "&7Wypada z kopania określonych bloków"
     lore3: "&7podczas wydarzenia &#CE5203Halloweenowego&7."
     lore4: "&7Wymień je na różne"
     lore5: "&7fanty u &#FF9800Dilera Cukierków&7."
-    chance: 0.005  # Chance to drop this item
+    chance: 0.005  # Chance to drop this item (0.0 to 1.0)
     glint: true
+
+
+# List of block that when mined have chance to drop items above
+mineable:
+  - COBBLESTONE
+
+
+
 
 
 

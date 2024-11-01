@@ -1,7 +1,7 @@
 name: CustomStoneDrop
 version: '1'
 main: me.Cashtann.customStoneDrop.CustomStoneDrop
-api-version: '1.19'
+api-version: '1.20'
 
 commands:
   customstonedrop:
@@ -15,6 +15,9 @@ commands:
     aliases:
       - cstonedmenu
       - customstonedropsmenu
+  itemglint:
+    description: 'Adds enchanted glint (hides enchants!)'
+    permission: csd.glint
 
 permissions:
   csd.admin:
@@ -22,4 +25,6 @@ permissions:
     default: op
   csd.drop:
     description: 'Allows to get a drop (if the drop is set)'
-
+  csd.glint:
+    description: 'Allows to apply glint to an item'
+    default: op
